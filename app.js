@@ -6,9 +6,8 @@
   const grid = document.getElementById("grid");
   if (!grid) return;
 
-  // Build gallery tiles (no prices, no "buy" language)
+  // Build gallery tiles (browse-only)
   const frag = document.createDocumentFragment();
-
   for (let i = 1; i <= ITEM_COUNT; i++) {
     const btn = document.createElement("button");
     btn.type = "button";
@@ -24,7 +23,6 @@
     btn.appendChild(img);
     frag.appendChild(btn);
   }
-
   grid.appendChild(frag);
 
   // Modal
@@ -32,8 +30,9 @@
   const modalImg = document.getElementById("modalImg");
   const modalTitle = document.getElementById("modalTitle");
 
+  if (!modal || !modalImg) return;
+
   const openModal = (src, title) => {
-    if (!modal || !modalImg) return;
     modalImg.src = src;
     modalImg.alt = title || "Gallery item";
     if (modalTitle) modalTitle.textContent = title || "Gallery Item";
@@ -42,7 +41,6 @@
   };
 
   const closeModal = () => {
-    if (!modal || !modalImg) return;
     modal.setAttribute("aria-hidden", "true");
     modalImg.src = "";
     document.body.style.overflow = "";
@@ -54,16 +52,12 @@
     openModal(tile.getAttribute("data-src"), tile.getAttribute("data-title"));
   });
 
-  if (modal){
-    modal.addEventListener("click", (e) => {
-      if (e.target.matches("[data-close]")) closeModal();
-    });
-  }
+  modal.addEventListener("click", (e) => {
+    if (e.target.matches("[data-close]")) closeModal();
+  });
 
   window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal && modal.getAttribute("aria-hidden") === "false") {
-      closeModal();
-    }
+    if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") closeModal();
   });
 
   // Footer year
