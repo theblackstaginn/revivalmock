@@ -129,6 +129,13 @@ body{
   border:1px solid rgba(214,180,106,.26);
   box-shadow: 0 12px 30px rgba(0,0,0,.35);
 }
+/* Brand icon inside hero mark */
+.brand-mark{
+  background:
+    url("./icon-192.PNG") center / 70% no-repeat,
+    radial-gradient(circle at 30% 25%, rgba(255,255,255,.18), transparent 58%),
+    linear-gradient(180deg, rgba(214,180,106,.28), rgba(0,0,0,.10));
+}
 
 /* Use sign font only for the brand + hero headline */
 .brand-name{
