@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Revival — Gifts & Apparel</title>
+  <meta name="description" content="Faith-forward gifts, apparel, and meaningful finds — curated with warmth and intention." />
+
+  <meta name="theme-color" content="#2b241a" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top">
+    <div class="top__inner">
+      <div class="brand">
+        <div class="brand__mark" aria-hidden="true"></div>
+        <div class="brand__text">
+          <div class="brand__name">Revival</div>
+          <div class="brand__tag">Gifts • Apparel • Home</div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#shop">Shop</a>
+        <a href="#about">About</a>
+        <a href="#visit">Visit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <section class="hero" aria-label="Intro">
+      <div class="hero__panel">
+        <h1>Warm, meaningful finds — curated with purpose.</h1>
+        <p>
+          Earth tones. Honest materials. Gifts that feel like a blessing, not a gimmick.
+          A gentle place to browse — in-store and online.
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#shop">Browse the Collection</a>
+          <a class="btn btn--ghost" href="#visit">Store Info</a>
+        </div>
+
+        <div class="hero__meta">
+          <div class="pill">Christian gifts & apparel</div>
+          <div class="pill">Small-town charm</div>
+          <div class="pill">Thoughtful + curated</div>
+        </div>
+      </div>
+
+      <figure class="hero__image">
+        <img src="./rev-sfront.PNG" alt="Storefront photo" loading="eager" />
+        <figcaption>“Revival” — gifts & apparel with heart.</figcaption>
+      </figure>
+    </section>
+
+    <section id="shop" class="section">
+      <div class="section__head">
+        <h2>Featured Finds</h2>
+        <p>Tap an item to view it up close. (Mockup gallery — swap in real product shots later.)</p>
+      </div>
+
+      <div class="grid" id="grid" aria-label="Product gallery">
+        <!-- JS injects items -->
+      </div>
+    </section>
+
+    <section id="about" class="section section--split" aria-label="About">
+      <div class="card">
+        <h2>About Revival</h2>
+        <p>
+          Revival is a faith-forward boutique built on warmth, encouragement, and the kind of gifts
+          you’re proud to give. We keep it simple: quality, meaning, and a peaceful browsing experience.
+        </p>
+        <ul class="bullets">
+          <li>Curated gifts with scripture-rooted encouragement</li>
+          <li>Apparel and home pieces that feel grounded and timeless</li>
+          <li>Friendly, local service — no pressure, no noise</li>
+        </ul>
+      </div>
+
+      <div class="card card--muted">
+        <h3>Simple promise</h3>
+        <p>
+          We aim for “quiet excellence”: thoughtful items, honest presentation, and a space that feels safe to linger.
+        </p>
+        <p class="small">
+          This mockup is designed to reflect in-store atmosphere: earth tones, soft contrast, and gold accents.
+        </p>
+      </div>
+    </section>
+
+    <section id="visit" class="section" aria-label="Visit">
+      <div class="section__head">
+        <h2>Visit</h2>
+        <p>Replace these details with the real address/hours when you’re ready.</p>
+      </div>
+
+      <div class="visit">
+        <div class="card">
+          <h3>Store Hours</h3>
+          <div class="kv">
+            <div><span>Mon–Fri</span><span>10–6</span></div>
+            <div><span>Saturday</span><span>10–7</span></div>
+            <div><span>Sunday</span><span>Closed</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Location</h3>
+          <p class="tight">Downtown • Small-town main street</p>
+          <p class="small">Add: address, phone, and a Google Maps link later.</p>
+          <a class="btn btn--primary" href="#contact">Contact</a>
+        </div>
+
+        <div class="card card--muted" id="contact">
+          <h3>Contact</h3>
+          <p class="small tight">Email: hello@revivalshop.com</p>
+          <p class="small tight">Phone: (555) 555-5555</p>
+          <p class="small">Mockup contact info — swap to real.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-label="Item preview">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" role="document" aria-modal="true">
+      <button class="modal__close" type="button" aria-label="Close" data-close>✕</button>
+      <img class="modal__img" id="modalImg" alt="" />
+      <div class="modal__bar">
+        <div class="modal__title" id="modalTitle">Item</div>
+        <button class="btn btn--primary" type="button" data-close>Done</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div>© <span id="year"></span> Revival</div>
+      <div class="small">Mockup site — atmosphere-first. Built for mobile.</div>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
