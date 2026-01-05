@@ -9,6 +9,25 @@
   font-display: swap;
 }
 
+/* ==============================
+   Sign font accents (section + cards)
+   ============================== */
+
+/* Section headers */
+#gallery h2,
+#visit h2{
+  font-family: "AwakeTheBeauty", Georgia, "Times New Roman", serif;
+  letter-spacing: .04em;
+  font-weight: normal;
+}
+
+/* Card titles (Hours / Location / Contact) */
+.visit-grid h3{
+  font-family: "AwakeTheBeauty", Georgia, "Times New Roman", serif;
+  letter-spacing: .04em;
+  font-weight: normal;
+}
+
 :root{
   --text:#f4efe4;
   --muted:rgba(244,239,228,.76);
