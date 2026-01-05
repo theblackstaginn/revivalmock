@@ -2,62 +2,60 @@
   "use strict";
 
   const ITEM_COUNT = 14;
-
   const grid = document.getElementById("grid");
 
-  // Build gallery tiles (no prices, no "buy" language)
   const frag = document.createDocumentFragment();
+
   for (let i = 1; i <= ITEM_COUNT; i++) {
     const btn = document.createElement("button");
-    btn.type = "button";
     btn.className = "tile";
-    btn.setAttribute("data-src", `./item-${i}.jpg`);
-    btn.setAttribute("data-title", `Gallery Item ${i}`);
+    btn.type = "button";
+    btn.dataset.src = `./item-${i}.jpg`;
+    btn.dataset.title = `Gallery Item ${i}`;
 
     const img = document.createElement("img");
     img.loading = "lazy";
-    img.alt = `Gallery Item ${i}`;
     img.src = `./item-${i}.jpg`;
+    img.alt = `Gallery Item ${i}`;
 
     btn.appendChild(img);
     frag.appendChild(btn);
   }
+
   grid.appendChild(frag);
 
-  // Modal
   const modal = document.getElementById("modal");
   const modalImg = document.getElementById("modalImg");
   const modalTitle = document.getElementById("modalTitle");
 
   const openModal = (src, title) => {
     modalImg.src = src;
-    modalImg.alt = title || "Gallery item";
-    if (modalTitle) modalTitle.textContent = title || "Gallery Item";
-    modal.setAttribute("aria-hidden", "false");
+    modalImg.alt = title;
+    modalTitle.textContent = title;
+    modal.setAttribute("aria-hidden","false");
     document.body.style.overflow = "hidden";
   };
 
   const closeModal = () => {
-    modal.setAttribute("aria-hidden", "true");
+    modal.setAttribute("aria-hidden","true");
     modalImg.src = "";
     document.body.style.overflow = "";
   };
 
-  grid.addEventListener("click", (e) => {
+  grid.addEventListener("click", e => {
     const tile = e.target.closest(".tile");
     if (!tile) return;
-    openModal(tile.getAttribute("data-src"), tile.getAttribute("data-title"));
+    openModal(tile.dataset.src, tile.dataset.title);
   });
 
-  modal.addEventListener("click", (e) => {
-    if (e.target.matches("[data-close]")) closeModal();
+  modal.addEventListener("click", e => {
+    if (e.target.dataset.close !== undefined) closeModal();
   });
 
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") closeModal();
+  window.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeModal();
   });
 
-  // Footer year
   const y = document.getElementById("year");
-  if (y) y.textContent = String(new Date().getFullYear());
-})(); 
+  if (y) y.textContent = new Date().getFullYear();
+})();
