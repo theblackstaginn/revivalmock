@@ -1,50 +1,38 @@
 (() => {
   "use strict";
 
-  // --- CONFIG: set item count to match your root ---
   const ITEM_COUNT = 14;
-
-  // Optional captions (kept generic for mockup)
-  const captions = Array.from({ length: ITEM_COUNT }, (_, i) => ({
-    title: `Featured Item ${i + 1}`,
-    note: "Tap to view"
-  }));
 
   const grid = document.getElementById("grid");
 
-  // Inject tiles
+  // Build gallery tiles (no prices, no "buy" language)
   const frag = document.createDocumentFragment();
   for (let i = 1; i <= ITEM_COUNT; i++) {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "tile";
     btn.setAttribute("data-src", `./item-${i}.jpg`);
-    btn.setAttribute("data-title", captions[i - 1].title);
+    btn.setAttribute("data-title", `Gallery Item ${i}`);
 
     const img = document.createElement("img");
     img.loading = "lazy";
-    img.alt = captions[i - 1].title;
+    img.alt = `Gallery Item ${i}`;
     img.src = `./item-${i}.jpg`;
 
-    const cap = document.createElement("div");
-    cap.className = "cap";
-    cap.innerHTML = `${captions[i - 1].title}<span>${captions[i - 1].note}</span>`;
-
     btn.appendChild(img);
-    btn.appendChild(cap);
     frag.appendChild(btn);
   }
   grid.appendChild(frag);
 
-  // Modal wiring
+  // Modal
   const modal = document.getElementById("modal");
   const modalImg = document.getElementById("modalImg");
   const modalTitle = document.getElementById("modalTitle");
 
   const openModal = (src, title) => {
     modalImg.src = src;
-    modalImg.alt = title || "Item preview";
-    modalTitle.textContent = title || "Item";
+    modalImg.alt = title || "Gallery item";
+    modalTitle.textContent = title || "Gallery Item";
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
   };
