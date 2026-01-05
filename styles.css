@@ -9,25 +9,9 @@
   font-display: swap;
 }
 
-/* ==============================
-   Sign font accents (section + cards)
-   ============================== */
-
-/* Section headers */
-#gallery h2,
-#visit h2{
-  font-family: "AwakeTheBeauty", Georgia, "Times New Roman", serif;
-  letter-spacing: .04em;
-  font-weight: normal;
-}
-
-/* Card titles (Hours / Location / Contact) */
-.visit-grid h3{
-  font-family: "AwakeTheBeauty", Georgia, "Times New Roman", serif;
-  letter-spacing: .04em;
-  font-weight: normal;
-}
-
+/* =======================
+   ROOT
+   ======================= */
 :root{
   --text:#f4efe4;
   --muted:rgba(244,239,228,.76);
@@ -99,7 +83,28 @@ body{
 
 .panel{ padding:22px; }
 
-/* Hero layout */
+/* =======================
+   TYPOGRAPHY (SIGN FONT)
+   ======================= */
+
+/* Section headers */
+#gallery h2,
+#visit h2{
+  font-family: "AwakeTheBeauty", Georgia, "Times New Roman", serif;
+  letter-spacing: .03em;
+  font-weight: normal;
+}
+
+/* Card titles (Hours / Location / Contact) */
+.visit-grid h3{
+  font-family: "AwakeTheBeauty", Georgia, "Times New Roman", serif;
+  letter-spacing: .03em;
+  font-weight: normal;
+}
+
+/* =======================
+   HERO LAYOUT
+   ======================= */
 .hero{
   display:grid;
   grid-template-columns: 1.05fr .95fr;
@@ -119,29 +124,51 @@ body{
   margin-bottom:10px;
 }
 
+/* Icon tile */
 .brand-mark{
-  width:40px;
-  height:40px;
+  width:44px;
+  height:44px;
   border-radius:14px;
-  background:
-    radial-gradient(circle at 30% 25%, rgba(255,255,255,.18), transparent 58%),
-    linear-gradient(180deg, rgba(214,180,106,.28), rgba(0,0,0,.10));
-  border:1px solid rgba(214,180,106,.26);
+  overflow:hidden;
+  border:1px solid rgba(214,180,106,.28);
   box-shadow: 0 12px 30px rgba(0,0,0,.35);
-}
-/* Brand icon inside hero mark */
-.brand-mark{
-  background:
-    url("./icon-192.PNG") center / 88% no-repeat,
-    radial-gradient(circle at 30% 25%, rgba(255,255,255,.18), transparent 58%),
-    linear-gradient(180deg, rgba(214,180,106,.28), rgba(0,0,0,.10));
+  background: rgba(0,0,0,.18);
+  position:relative;
 }
 
-/* Use sign font only for the brand + hero headline */
+/* Icon fill (this is the “make it fill better” fix) */
+.brand-mark::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: url("./icon-192.PNG") center / cover no-repeat;
+  transform: scale(1.04); /* tiny push so it feels “filled” */
+}
+
+/* Gentle gold glaze over icon (still looks premium, not flat) */
+.brand-mark::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255,255,255,.16), transparent 60%),
+    linear-gradient(180deg, rgba(214,180,106,.18), rgba(0,0,0,.12));
+  pointer-events:none;
+}
+
+@media (max-width: 767px){
+  .brand-mark{
+    width:50px;
+    height:50px;
+    border-radius:16px;
+  }
+}
+
+/* Brand name uses sign font */
 .brand-name{
   font-family: "AwakeTheBeauty", Georgia, "Times New Roman", serif;
   font-weight: normal;
-  letter-spacing: .04em;
+  letter-spacing: .03em;
   font-size: 34px;
   line-height: 1;
 }
@@ -156,7 +183,7 @@ h1{
   margin:10px 0 10px;
   font-family: "AwakeTheBeauty", Georgia, "Times New Roman", serif;
   font-weight: normal;
-  letter-spacing: .03em;
+  letter-spacing: .02em;
   font-size: clamp(26px, 3.2vw, 40px);
   line-height:1.08;
 }
@@ -170,7 +197,9 @@ h1{
   color: rgba(244,239,228,.92);
 }
 
-/* Buttons */
+/* =======================
+   BUTTONS (ALL SIGN FONT)
+   ======================= */
 .cta{
   display:flex;
   justify-content:center;
@@ -179,23 +208,31 @@ h1{
   margin:12px 0 10px;
 }
 
+/* tighter CTA spacing for Visit card */
+.cta-visit{ margin:12px 0 0; }
+
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:11px 16px;
+  padding:12px 18px;
   border-radius:999px;
-  font-weight:700;
   text-decoration:none;
   cursor:pointer;
   user-select:none;
   border:1px solid transparent;
+
+  /* ✅ ALL BUTTONS use AwakeTheBeauty */
+  font-family: "AwakeTheBeauty", Georgia, "Times New Roman", serif;
+  font-weight: normal;
+  letter-spacing: .02em;
+  font-size: 18px;
+  line-height: 1;
 }
 
 .btn-gold{
   color:#241b12;
-  background:
-    linear-gradient(180deg, var(--gold1), var(--gold3));
+  background: linear-gradient(180deg, var(--gold1), var(--gold3));
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.45),
     inset 0 -2px 6px rgba(0,0,0,.18),
@@ -208,7 +245,9 @@ h1{
   border:1px solid rgba(214,180,106,.25);
 }
 
-/* Social icons (solid metallic gold) */
+/* =======================
+   SOCIAL ICONS
+   ======================= */
 .socials{
   display:flex;
   justify-content:center;
@@ -236,7 +275,9 @@ h1{
     drop-shadow(0 6px 12px rgba(0,0,0,.35));
 }
 
-/* Image panel */
+/* =======================
+   IMAGE PANEL
+   ======================= */
 .image-panel{
   padding:0;
   overflow:hidden;
@@ -256,18 +297,23 @@ h1{
   border-top:1px solid rgba(214,180,106,.18);
 }
 
-/* Sections */
+/* =======================
+   SECTIONS
+   ======================= */
 .section{ margin-top:22px; }
 .section-head{ margin-bottom:16px; }
 
 h2{
   margin:0 0 6px;
-  font-size:22px;
-  letter-spacing:.2px;
+  font-size:24px;
 }
+
 .section-head p{ margin:0; color:var(--muted); }
 
-/* Gallery grid: 3 columns desktop, 1 column mobile */
+/* =======================
+   GALLERY GRID
+   ======================= */
+/* 3 columns desktop, 1 column mobile */
 .grid{
   display:grid;
   grid-template-columns:repeat(3, minmax(0, 1fr));
@@ -301,7 +347,9 @@ h2{
   .tile img{ height:320px; }
 }
 
-/* Visit grid */
+/* =======================
+   VISIT GRID
+   ======================= */
 .visit-grid{
   display:grid;
   grid-template-columns:repeat(3, minmax(0, 1fr));
@@ -319,18 +367,23 @@ h2{
 .kv div{
   display:flex;
   justify-content:space-between;
+  gap:12px;
   padding:8px 0;
   border-bottom:1px solid rgba(214,180,106,.18);
   color: rgba(244,239,228,.92);
 }
 
-/* Footer */
+/* =======================
+   FOOTER
+   ======================= */
 .footer{
   margin-top:26px;
   padding:14px 0 0;
 }
 
-/* Modal */
+/* =======================
+   MODAL
+   ======================= */
 .modal{
   position:fixed;
   inset:0;
