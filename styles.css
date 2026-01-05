@@ -132,7 +132,7 @@ body{
 /* Brand icon inside hero mark */
 .brand-mark{
   background:
-    url("./icon-192.PNG") center / 70% no-repeat,
+    url("./icon-192.PNG") center / 88% no-repeat,
     radial-gradient(circle at 30% 25%, rgba(255,255,255,.18), transparent 58%),
     linear-gradient(180deg, rgba(214,180,106,.28), rgba(0,0,0,.10));
 }
