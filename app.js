@@ -4,9 +4,17 @@
   const ITEM_COUNT = 14;
 
   const grid = document.getElementById("grid");
+  const modal = document.getElementById("modal");
+  const modalImg = document.getElementById("modalImg");
+  const modalTitle = document.getElementById("modalTitle");
+
+  // Footer year
+  const y = document.getElementById("year");
+  if (y) y.textContent = String(new Date().getFullYear());
+
   if (!grid) return;
 
-  // Build gallery tiles (browse-only)
+  // Build gallery tiles
   const frag = document.createDocumentFragment();
   for (let i = 1; i <= ITEM_COUNT; i++) {
     const btn = document.createElement("button");
@@ -25,14 +33,9 @@
   }
   grid.appendChild(frag);
 
-  // Modal
-  const modal = document.getElementById("modal");
-  const modalImg = document.getElementById("modalImg");
-  const modalTitle = document.getElementById("modalTitle");
-
-  if (!modal || !modalImg) return;
-
+  // Modal controls
   const openModal = (src, title) => {
+    if (!modal || !modalImg) return;
     modalImg.src = src;
     modalImg.alt = title || "Gallery item";
     if (modalTitle) modalTitle.textContent = title || "Gallery Item";
@@ -41,6 +44,7 @@
   };
 
   const closeModal = () => {
+    if (!modal || !modalImg) return;
     modal.setAttribute("aria-hidden", "true");
     modalImg.src = "";
     document.body.style.overflow = "";
@@ -52,15 +56,14 @@
     openModal(tile.getAttribute("data-src"), tile.getAttribute("data-title"));
   });
 
-  modal.addEventListener("click", (e) => {
-    if (e.target.matches("[data-close]")) closeModal();
-  });
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (e.target.matches("[data-close]")) closeModal();
+    });
+  }
 
   window.addEventListener("keydown", (e) => {
+    if (!modal) return;
     if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") closeModal();
   });
-
-  // Footer year
-  const y = document.getElementById("year");
-  if (y) y.textContent = String(new Date().getFullYear());
 })();
