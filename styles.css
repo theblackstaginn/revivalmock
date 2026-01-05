@@ -1,10 +1,14 @@
-@font-face {
+/* =======================
+   BRAND FONT (SELF-HOSTED)
+   ======================= */
+@font-face{
   font-family: "AwakeTheBeauty";
-  src: url("./Awake the Beauty.ttf") format("truetype");
+  src: url("./awakethebeauty.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
+
 :root{
   --text:#f4efe4;
   --muted:rgba(244,239,228,.76);
@@ -25,17 +29,6 @@
   --wrap:min(1100px, calc(100% - 32px));
 }
 
-/* =======================
-   BRAND FONT (SELF-HOSTED)
-   ======================= */
-@font-face{
-  font-family: "AwakeTheBeauty";
-  src: url("./fonts/awake-the-beauty.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
 
@@ -51,6 +44,7 @@ body{
     url("./bg-webpage.jpg") center / cover no-repeat fixed;
 }
 
+/* iOS-friendly: no fixed background on mobile */
 @media (max-width: 767px){
   body{
     background:
@@ -73,7 +67,7 @@ body{
 .small{ font-size:12px; color:var(--muted); line-height:1.5; }
 .lead{ color:var(--muted); line-height:1.55; }
 
-/* Glass */
+/* Gold-tinted glass panel */
 .glass{
   background:
     linear-gradient(180deg, rgba(214,180,106,.10), rgba(0,0,0,0)),
@@ -86,24 +80,24 @@ body{
 
 .panel{ padding:22px; }
 
-/* =======================
-   HERO
-   ======================= */
+/* Hero layout */
 .hero{
   display:grid;
   grid-template-columns: 1.05fr .95fr;
   gap:20px;
+  align-items:stretch;
 }
 
 @media (max-width: 900px){
-  .hero{ grid-template-columns:1fr; }
+  .hero{ grid-template-columns: 1fr; }
 }
 
 .brand{
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   gap:12px;
+  margin-bottom:10px;
 }
 
 .brand-mark{
@@ -114,48 +108,62 @@ body{
     radial-gradient(circle at 30% 25%, rgba(255,255,255,.18), transparent 58%),
     linear-gradient(180deg, rgba(214,180,106,.28), rgba(0,0,0,.10));
   border:1px solid rgba(214,180,106,.26);
+  box-shadow: 0 12px 30px rgba(0,0,0,.35);
 }
 
+/* Use sign font only for the brand + hero headline */
 .brand-name{
-  font-family: "AwakeTheBeauty", cursive;
-  font-size:32px;
-  line-height:1;
+  font-family: "AwakeTheBeauty", Georgia, "Times New Roman", serif;
+  font-weight: normal;
+  letter-spacing: .04em;
+  font-size: 34px;
+  line-height: 1;
 }
 
 .brand-tag{
+  margin-top:2px;
   font-size:12px;
   color:var(--muted);
 }
 
 h1{
-  margin:12px 0 10px;
-  font-size: clamp(24px, 3.2vw, 36px);
+  margin:10px 0 10px;
+  font-family: "AwakeTheBeauty", Georgia, "Times New Roman", serif;
+  font-weight: normal;
+  letter-spacing: .03em;
+  font-size: clamp(26px, 3.2vw, 40px);
+  line-height:1.08;
 }
 
 .note{
   margin:12px auto 14px;
-  padding:12px;
+  padding:12px 14px;
   border-radius:14px;
   border:1px solid rgba(214,180,106,.18);
   background: rgba(0,0,0,.14);
+  color: rgba(244,239,228,.92);
 }
 
-/* =======================
-   BUTTONS
-   ======================= */
+/* Buttons */
 .cta{
   display:flex;
   justify-content:center;
   gap:12px;
-  margin-bottom:14px;
+  flex-wrap:wrap;
+  margin:12px 0 10px;
 }
 
 .btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   padding:11px 16px;
   border-radius:999px;
   font-weight:700;
   text-decoration:none;
   cursor:pointer;
+  user-select:none;
+  border:1px solid transparent;
 }
 
 .btn-gold{
@@ -163,7 +171,8 @@ h1{
   background:
     linear-gradient(180deg, var(--gold1), var(--gold3));
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.4),
+    inset 0 1px 0 rgba(255,255,255,.45),
+    inset 0 -2px 6px rgba(0,0,0,.18),
     0 12px 28px rgba(0,0,0,.35);
 }
 
@@ -173,13 +182,12 @@ h1{
   border:1px solid rgba(214,180,106,.25);
 }
 
-/* =======================
-   SOCIAL ICONS
-   ======================= */
+/* Social icons (solid metallic gold) */
 .socials{
   display:flex;
   justify-content:center;
   gap:12px;
+  margin-top:12px;
 }
 
 .social-link{
@@ -202,9 +210,7 @@ h1{
     drop-shadow(0 6px 12px rgba(0,0,0,.35));
 }
 
-/* =======================
-   IMAGE PANEL
-   ======================= */
+/* Image panel */
 .image-panel{
   padding:0;
   overflow:hidden;
@@ -214,73 +220,97 @@ h1{
   width:100%;
   height:100%;
   object-fit:cover;
+  display:block;
 }
 
 .image-panel figcaption{
-  padding:10px;
+  padding:10px 12px;
   font-size:12px;
   color:var(--muted);
   border-top:1px solid rgba(214,180,106,.18);
 }
 
-/* =======================
-   GALLERY
-   ======================= */
+/* Sections */
+.section{ margin-top:22px; }
+.section-head{ margin-bottom:16px; }
+
+h2{
+  margin:0 0 6px;
+  font-size:22px;
+  letter-spacing:.2px;
+}
+.section-head p{ margin:0; color:var(--muted); }
+
+/* Gallery grid: 3 columns desktop, 1 column mobile */
 .grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(3, minmax(0, 1fr));
   gap:22px;
+  align-items:stretch;
 }
 
+@media (max-width: 767px){
+  .grid{ grid-template-columns:1fr; }
+}
+
+/* Tiles */
 .tile{
+  padding:0;
   border-radius:16px;
   overflow:hidden;
   border:1px solid rgba(214,180,106,.22);
   background: rgba(0,0,0,.18);
   cursor:pointer;
+  box-shadow: 0 12px 30px rgba(0,0,0,.28);
 }
 
 .tile img{
   width:100%;
-  height:260px;
+  height:280px;
   object-fit:cover;
+  display:block;
 }
 
 @media (max-width: 767px){
-  .grid{ grid-template-columns:1fr; }
-  .tile img{ height:300px; }
+  .tile img{ height:320px; }
 }
 
-/* =======================
-   VISIT
-   ======================= */
+/* Visit grid */
 .visit-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(3, minmax(0, 1fr));
   gap:16px;
+  margin-top:14px;
 }
 
-@media (max-width:900px){
+@media (max-width: 900px){
   .visit-grid{ grid-template-columns:1fr; }
 }
 
+.kv{
+  margin-top:8px;
+}
 .kv div{
   display:flex;
   justify-content:space-between;
   padding:8px 0;
   border-bottom:1px solid rgba(214,180,106,.18);
+  color: rgba(244,239,228,.92);
 }
 
-/* =======================
-   MODAL
-   ======================= */
+/* Footer */
+.footer{
+  margin-top:26px;
+  padding:14px 0 0;
+}
+
+/* Modal */
 .modal{
   position:fixed;
   inset:0;
   display:none;
   z-index:100;
 }
-
 .modal[aria-hidden="false"]{ display:block; }
 
 .modal-backdrop{
@@ -295,16 +325,43 @@ h1{
   left:50%;
   transform:translate(-50%,-50%);
   width:min(960px, calc(100% - 24px));
-}
-
-.modal-img{
-  width:100%;
-  max-height:78vh;
-  object-fit:contain;
+  padding:14px;
 }
 
 .modal-close{
   position:absolute;
   top:10px;
   right:10px;
+  width:40px;
+  height:40px;
+  border-radius:999px;
+  border:1px solid rgba(214,180,106,.25);
+  background: rgba(0,0,0,.25);
+  color: var(--text);
+  cursor:pointer;
+}
+
+.modal-img{
+  width:100%;
+  max-height:78vh;
+  object-fit:contain;
+  display:block;
+  border-radius:14px;
+}
+
+.modal-bar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:10px 4px 0;
+  color: var(--muted);
+}
+
+.modal-title{
+  font-size:13px;
+  color: rgba(244,239,228,.92);
+}
+.modal-hint{
+  font-size:12px;
 }
