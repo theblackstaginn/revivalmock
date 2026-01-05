@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Revival — Gifts & Apparel</title>
-  <meta name="description" content="Faith-forward gifts, apparel, and meaningful finds — curated with warmth and intention." />
+  <meta name="description" content="A warm, faith-forward boutique for gifts, apparel, and home — browse our vibe and visit in-store." />
+  <meta name="theme-color" content="#241b12" />
 
-  <meta name="theme-color" content="#2b241a" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 
@@ -15,7 +15,7 @@
 
   <header class="top">
     <div class="top__inner">
-      <div class="brand">
+      <div class="brand" aria-label="Revival">
         <div class="brand__mark" aria-hidden="true"></div>
         <div class="brand__text">
           <div class="brand__name">Revival</div>
@@ -24,7 +24,7 @@
       </div>
 
       <nav class="nav" aria-label="Primary">
-        <a href="#shop">Shop</a>
+        <a href="#browse">Browse</a>
         <a href="#about">About</a>
         <a href="#visit">Visit</a>
       </nav>
@@ -32,39 +32,43 @@
   </header>
 
   <main id="main" class="wrap">
-    <section class="hero" aria-label="Intro">
+    <section class="hero" aria-label="Welcome">
       <div class="hero__panel">
         <h1>Warm, meaningful finds — curated with purpose.</h1>
         <p>
-          Earth tones. Honest materials. Gifts that feel like a blessing, not a gimmick.
-          A gentle place to browse — in-store and online.
+          A peaceful place to browse. Earth tones, honest materials, and gold accents —
+          simple, grounded, and inviting.
         </p>
 
-        <div class="hero__cta">
-          <a class="btn btn--primary" href="#shop">Browse the Collection</a>
-          <a class="btn btn--ghost" href="#visit">Store Info</a>
+        <div class="hero__meta">
+          <div class="pill">Browse-only porch</div>
+          <div class="pill">Faith-forward boutique</div>
+          <div class="pill">In-store experience first</div>
         </div>
 
-        <div class="hero__meta">
-          <div class="pill">Christian gifts & apparel</div>
-          <div class="pill">Small-town charm</div>
-          <div class="pill">Thoughtful + curated</div>
+        <div class="hero__note">
+          <strong>Note:</strong> This gallery is for browsing inspiration. For availability, visit us or reach out.
+        </div>
+
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#browse">Browse the Gallery</a>
+          <a class="btn btn--ghost" href="#visit">Store Info</a>
         </div>
       </div>
 
       <figure class="hero__image">
-        <img src="./rev-sfront.PNG" alt="Storefront photo" loading="eager" />
-        <figcaption>“Revival” — gifts & apparel with heart.</figcaption>
+        <img src="./rev-sfront.PNG" alt="Revival storefront" loading="eager" />
+        <figcaption>Small-town charm. Quiet browsing. Thoughtful gifts.</figcaption>
       </figure>
     </section>
 
-    <section id="shop" class="section">
+    <section id="browse" class="section">
       <div class="section__head">
-        <h2>Featured Finds</h2>
-        <p>Tap an item to view it up close. (Mockup gallery — swap in real product shots later.)</p>
+        <h2>Browse the Gallery</h2>
+        <p>Tap an item to view it larger. No ordering — just a calm place to explore.</p>
       </div>
 
-      <div class="grid" id="grid" aria-label="Product gallery">
+      <div class="grid" id="grid" aria-label="Gallery">
         <!-- JS injects items -->
       </div>
     </section>
@@ -77,27 +81,29 @@
           you’re proud to give. We keep it simple: quality, meaning, and a peaceful browsing experience.
         </p>
         <ul class="bullets">
-          <li>Curated gifts with scripture-rooted encouragement</li>
+          <li>Curated gifts with encouragement at the center</li>
           <li>Apparel and home pieces that feel grounded and timeless</li>
-          <li>Friendly, local service — no pressure, no noise</li>
+          <li>Friendly local service — no pressure, no noise</li>
         </ul>
       </div>
 
       <div class="card card--muted">
-        <h3>Simple promise</h3>
+        <h3>How to shop</h3>
         <p>
-          We aim for “quiet excellence”: thoughtful items, honest presentation, and a space that feels safe to linger.
+          This site is a “front porch” — a place to browse what we carry and plan your visit.
+          For current inventory, stop by or contact us.
         </p>
-        <p class="small">
-          This mockup is designed to reflect in-store atmosphere: earth tones, soft contrast, and gold accents.
-        </p>
+        <div class="callout">
+          <div class="callout__title">Looking for something specific?</div>
+          <div class="callout__text">Send us a message and we’ll help you find it.</div>
+        </div>
       </div>
     </section>
 
     <section id="visit" class="section" aria-label="Visit">
       <div class="section__head">
         <h2>Visit</h2>
-        <p>Replace these details with the real address/hours when you’re ready.</p>
+        <p>Replace these details with the real address/hours whenever you’re ready.</p>
       </div>
 
       <div class="visit">
@@ -112,12 +118,11 @@
 
         <div class="card">
           <h3>Location</h3>
-          <p class="tight">Downtown • Small-town main street</p>
-          <p class="small">Add: address, phone, and a Google Maps link later.</p>
-          <a class="btn btn--primary" href="#contact">Contact</a>
+          <p class="tight">Downtown • Main street</p>
+          <p class="small">Add: address + phone + map link later.</p>
         </div>
 
-        <div class="card card--muted" id="contact">
+        <div class="card card--muted">
           <h3>Contact</h3>
           <p class="small tight">Email: hello@revivalshop.com</p>
           <p class="small tight">Phone: (555) 555-5555</p>
@@ -128,14 +133,15 @@
   </main>
 
   <!-- MODAL -->
-  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-label="Item preview">
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-label="Gallery preview">
     <div class="modal__backdrop" data-close></div>
+
     <div class="modal__panel" role="document" aria-modal="true">
       <button class="modal__close" type="button" aria-label="Close" data-close>✕</button>
       <img class="modal__img" id="modalImg" alt="" />
       <div class="modal__bar">
-        <div class="modal__title" id="modalTitle">Item</div>
-        <button class="btn btn--primary" type="button" data-close>Done</button>
+        <div class="modal__title" id="modalTitle">Gallery Item</div>
+        <div class="modal__hint">Browse-only</div>
       </div>
     </div>
   </div>
@@ -143,7 +149,7 @@
   <footer class="footer">
     <div class="footer__inner">
       <div>© <span id="year"></span> Revival</div>
-      <div class="small">Mockup site — atmosphere-first. Built for mobile.</div>
+      <div class="small">Browse-only porch • Earth tones • Gold accents</div>
     </div>
   </footer>
 
