@@ -32,7 +32,7 @@
   const openModal = (src, title) => {
     modalImg.src = src;
     modalImg.alt = title || "Gallery item";
-    modalTitle.textContent = title || "Gallery Item";
+    if (modalTitle) modalTitle.textContent = title || "Gallery Item";
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
   };
