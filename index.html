@@ -4,111 +4,74 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Revival — Gifts & Apparel</title>
-  <meta name="description" content="A warm, faith-forward boutique for gifts, apparel, and home — browse our vibe and visit in-store." />
+  <meta name="description" content="A warm, faith-forward boutique for gifts, apparel, and home. Browse our gallery and visit in-store." />
   <meta name="theme-color" content="#241b12" />
-
   <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <main class="wrap" id="main">
 
-  <header class="top">
-    <div class="top__inner">
-      <div class="brand" aria-label="Revival">
-        <div class="brand__mark" aria-hidden="true"></div>
-        <div class="brand__text">
-          <div class="brand__name">Revival</div>
-          <div class="brand__tag">Gifts • Apparel • Home</div>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="panel glass center">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div class="brand-text">
+            <div class="brand-name">Revival</div>
+            <div class="brand-tag">Gifts • Apparel • Home</div>
+          </div>
         </div>
-      </div>
 
-      <nav class="nav" aria-label="Primary">
-        <a href="#browse">Browse</a>
-        <a href="#about">About</a>
-        <a href="#visit">Visit</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main" class="wrap">
-    <section class="hero" aria-label="Welcome">
-      <div class="hero__panel">
         <h1>Warm, meaningful finds — curated with purpose.</h1>
-        <p>
-          A peaceful place to browse. Earth tones, honest materials, and gold accents —
-          simple, grounded, and inviting.
+        <p class="lead">
+          A quiet place to browse. Earth tones, honest materials, and gold accents —
+          designed to reflect the in-store experience.
         </p>
 
-        <div class="hero__meta">
-          <div class="pill">Browse-only porch</div>
-          <div class="pill">Faith-forward boutique</div>
-          <div class="pill">In-store experience first</div>
+        <div class="meta">
+          <span class="pill">Browse-only porch</span>
+          <span class="pill">Faith-forward boutique</span>
+          <span class="pill">In-store experience first</span>
         </div>
 
-        <div class="hero__note">
-          <strong>Note:</strong> This gallery is for browsing inspiration. For availability, visit us or reach out.
+        <div class="note">
+          This gallery is for browsing inspiration. For availability, visit us or reach out.
         </div>
 
-        <div class="hero__cta">
-          <a class="btn btn--primary" href="#browse">Browse the Gallery</a>
-          <a class="btn btn--ghost" href="#visit">Store Info</a>
+        <div class="cta">
+          <a class="btn btn-gold" href="#gallery">Browse the Gallery</a>
+          <a class="btn btn-glass" href="#visit">Store Info</a>
         </div>
       </div>
 
-      <figure class="hero__image">
+      <figure class="panel glass image-panel center">
         <img src="./rev-sfront.PNG" alt="Revival storefront" loading="eager" />
         <figcaption>Small-town charm. Quiet browsing. Thoughtful gifts.</figcaption>
       </figure>
     </section>
 
-    <section id="browse" class="section">
-      <div class="section__head">
+    <!-- GALLERY -->
+    <section id="gallery" class="section">
+      <div class="panel glass center section-head">
         <h2>Browse the Gallery</h2>
         <p>Tap an item to view it larger. No ordering — just a calm place to explore.</p>
       </div>
 
-      <div class="grid" id="grid" aria-label="Gallery">
-        <!-- JS injects items -->
-      </div>
+      <div class="grid" id="grid" aria-label="Gallery"></div>
     </section>
 
-    <section id="about" class="section section--split" aria-label="About">
-      <div class="card">
-        <h2>About Revival</h2>
-        <p>
-          Revival is a faith-forward boutique built on warmth, encouragement, and the kind of gifts
-          you’re proud to give. We keep it simple: quality, meaning, and a peaceful browsing experience.
-        </p>
-        <ul class="bullets">
-          <li>Curated gifts with encouragement at the center</li>
-          <li>Apparel and home pieces that feel grounded and timeless</li>
-          <li>Friendly local service — no pressure, no noise</li>
-        </ul>
-      </div>
-
-      <div class="card card--muted">
-        <h3>How to shop</h3>
-        <p>
-          This site is a “front porch” — a place to browse what we carry and plan your visit.
-          For current inventory, stop by or contact us.
-        </p>
-        <div class="callout">
-          <div class="callout__title">Looking for something specific?</div>
-          <div class="callout__text">Send us a message and we’ll help you find it.</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="visit" class="section" aria-label="Visit">
-      <div class="section__head">
+    <!-- VISIT -->
+    <section id="visit" class="section">
+      <div class="panel glass center section-head">
         <h2>Visit</h2>
-        <p>Replace these details with the real address/hours whenever you’re ready.</p>
+        <p class="tight">Downtown • Main Street</p>
+        <p class="small">Replace hours, address, and contact info when ready.</p>
       </div>
 
-      <div class="visit">
-        <div class="card">
-          <h3>Store Hours</h3>
+      <div class="visit-grid">
+        <div class="panel glass center">
+          <h3>Hours</h3>
           <div class="kv">
             <div><span>Mon–Fri</span><span>10–6</span></div>
             <div><span>Saturday</span><span>10–7</span></div>
@@ -116,42 +79,40 @@
           </div>
         </div>
 
-        <div class="card">
-          <h3>Location</h3>
-          <p class="tight">Downtown • Main street</p>
-          <p class="small">Add: address + phone + map link later.</p>
+        <div class="panel glass center">
+          <h3>Contact</h3>
+          <p class="small tight">hello@revivalshop.com</p>
+          <p class="small tight">(555) 555-5555</p>
+          <p class="small">Mockup contact info — swap to real.</p>
         </div>
 
-        <div class="card card--muted">
-          <h3>Contact</h3>
-          <p class="small tight">Email: hello@revivalshop.com</p>
-          <p class="small tight">Phone: (555) 555-5555</p>
-          <p class="small">Mockup contact info — swap to real.</p>
+        <div class="panel glass center">
+          <h3>Location</h3>
+          <p class="small">Add a map link later.</p>
+          <p class="small">This is a “front porch” site: browse online, shop in-store.</p>
         </div>
       </div>
     </section>
+
+    <footer class="footer center">
+      <p class="small">© <span id="year"></span> Revival • Browse-only porch</p>
+    </footer>
   </main>
 
   <!-- MODAL -->
   <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-label="Gallery preview">
-    <div class="modal__backdrop" data-close></div>
-
-    <div class="modal__panel" role="document" aria-modal="true">
-      <button class="modal__close" type="button" aria-label="Close" data-close>✕</button>
-      <img class="modal__img" id="modalImg" alt="" />
-      <div class="modal__bar">
-        <div class="modal__title" id="modalTitle">Gallery Item</div>
-        <div class="modal__hint">Browse-only</div>
-      </div>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel glass">
+      <button class="modal-close" type="button" aria-label="Close" data-close>✕</button>
+      <img class="modal-img" id="modalImg" alt="" />
     </div>
   </div>
 
-  <footer class="footer">
-    <div class="footer__inner">
-      <div>© <span id="year"></span> Revival</div>
-      <div class="small">Browse-only porch • Earth tones • Gold accents</div>
-    </div>
-  </footer>
+  <script>
+    // footer year (safe even if you keep app.js separate)
+    const y = document.getElementById("year");
+    if (y) y.textContent = String(new Date().getFullYear());
+  </script>
 
   <script src="./app.js"></script>
 </body>
