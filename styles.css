@@ -9,9 +9,6 @@
   font-display: swap;
 }
 
-/* =======================
-   ROOT
-   ======================= */
 :root{
   --text:#f4efe4;
   --muted:rgba(244,239,228,.76);
@@ -83,28 +80,7 @@ body{
 
 .panel{ padding:22px; }
 
-/* =======================
-   TYPOGRAPHY (SIGN FONT)
-   ======================= */
-
-/* Section headers */
-#gallery h2,
-#visit h2{
-  font-family: "AwakeTheBeauty", Georgia, "Times New Roman", serif;
-  letter-spacing: .03em;
-  font-weight: normal;
-}
-
-/* Card titles (Hours / Location / Contact) */
-.visit-grid h3{
-  font-family: "AwakeTheBeauty", Georgia, "Times New Roman", serif;
-  letter-spacing: .03em;
-  font-weight: normal;
-}
-
-/* =======================
-   HERO LAYOUT
-   ======================= */
+/* Hero layout */
 .hero{
   display:grid;
   grid-template-columns: 1.05fr .95fr;
@@ -116,6 +92,11 @@ body{
   .hero{ grid-template-columns: 1fr; }
 }
 
+.hero-panel{
+  display:flex;
+  flex-direction:column;
+}
+
 .brand{
   display:flex;
   align-items:center;
@@ -124,36 +105,19 @@ body{
   margin-bottom:10px;
 }
 
-/* Icon tile */
+/* Brand icon */
 .brand-mark{
   width:44px;
   height:44px;
   border-radius:14px;
-  overflow:hidden;
-  border:1px solid rgba(214,180,106,.28);
+  border:1px solid rgba(214,180,106,.26);
   box-shadow: 0 12px 30px rgba(0,0,0,.35);
-  background: rgba(0,0,0,.18);
-  position:relative;
-}
 
-/* Icon fill (this is the “make it fill better” fix) */
-.brand-mark::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: url("./icon-192.PNG") center / cover no-repeat;
-  transform: scale(1.04); /* tiny push so it feels “filled” */
-}
-
-/* Gentle gold glaze over icon (still looks premium, not flat) */
-.brand-mark::after{
-  content:"";
-  position:absolute;
-  inset:0;
+  /* Make the icon fill the space better */
   background:
-    radial-gradient(circle at 30% 25%, rgba(255,255,255,.16), transparent 60%),
-    linear-gradient(180deg, rgba(214,180,106,.18), rgba(0,0,0,.12));
-  pointer-events:none;
+    url("./icon-192.PNG") center / 98% no-repeat,
+    radial-gradient(circle at 30% 25%, rgba(255,255,255,.18), transparent 58%),
+    linear-gradient(180deg, rgba(214,180,106,.28), rgba(0,0,0,.10));
 }
 
 @media (max-width: 767px){
@@ -161,14 +125,18 @@ body{
     width:50px;
     height:50px;
     border-radius:16px;
+    background:
+      url("./icon-192.PNG") center / 100% no-repeat,
+      radial-gradient(circle at 30% 25%, rgba(255,255,255,.18), transparent 58%),
+      linear-gradient(180deg, rgba(214,180,106,.28), rgba(0,0,0,.10));
   }
 }
 
-/* Brand name uses sign font */
+/* Use sign font for brand name */
 .brand-name{
   font-family: "AwakeTheBeauty", Georgia, "Times New Roman", serif;
   font-weight: normal;
-  letter-spacing: .03em;
+  letter-spacing: .04em;
   font-size: 34px;
   line-height: 1;
 }
@@ -179,15 +147,17 @@ body{
   color:var(--muted);
 }
 
+/* Hero headline */
 h1{
   margin:10px 0 10px;
   font-family: "AwakeTheBeauty", Georgia, "Times New Roman", serif;
   font-weight: normal;
-  letter-spacing: .02em;
+  letter-spacing: .03em;
   font-size: clamp(26px, 3.2vw, 40px);
   line-height:1.08;
 }
 
+/* Note box */
 .note{
   margin:12px auto 14px;
   padding:12px 14px;
@@ -195,11 +165,10 @@ h1{
   border:1px solid rgba(214,180,106,.18);
   background: rgba(0,0,0,.14);
   color: rgba(244,239,228,.92);
+  max-width: 560px;
 }
 
-/* =======================
-   BUTTONS (ALL SIGN FONT)
-   ======================= */
+/* Buttons */
 .cta{
   display:flex;
   justify-content:center;
@@ -208,31 +177,33 @@ h1{
   margin:12px 0 10px;
 }
 
-/* tighter CTA spacing for Visit card */
-.cta-visit{ margin:12px 0 0; }
+.cta-single{
+  margin-top:12px;
+}
 
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:12px 18px;
+  padding:11px 16px;
   border-radius:999px;
+  font-weight:700;
   text-decoration:none;
   cursor:pointer;
   user-select:none;
   border:1px solid transparent;
+}
 
-  /* ✅ ALL BUTTONS use AwakeTheBeauty */
+.btn-sign{
   font-family: "AwakeTheBeauty", Georgia, "Times New Roman", serif;
   font-weight: normal;
-  letter-spacing: .02em;
-  font-size: 18px;
-  line-height: 1;
+  letter-spacing: .04em;
 }
 
 .btn-gold{
   color:#241b12;
-  background: linear-gradient(180deg, var(--gold1), var(--gold3));
+  background:
+    linear-gradient(180deg, var(--gold1), var(--gold3));
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.45),
     inset 0 -2px 6px rgba(0,0,0,.18),
@@ -245,14 +216,13 @@ h1{
   border:1px solid rgba(214,180,106,.25);
 }
 
-/* =======================
-   SOCIAL ICONS
-   ======================= */
+/* Social icons (solid metallic gold) */
 .socials{
   display:flex;
   justify-content:center;
   gap:12px;
-  margin-top:12px;
+  margin-top:10px;
+  margin-bottom:4px;
 }
 
 .social-link{
@@ -275,9 +245,7 @@ h1{
     drop-shadow(0 6px 12px rgba(0,0,0,.35));
 }
 
-/* =======================
-   IMAGE PANEL
-   ======================= */
+/* Image panel */
 .image-panel{
   padding:0;
   overflow:hidden;
@@ -297,23 +265,26 @@ h1{
   border-top:1px solid rgba(214,180,106,.18);
 }
 
-/* =======================
-   SECTIONS
-   ======================= */
+/* Sections */
 .section{ margin-top:22px; }
 .section-head{ margin-bottom:16px; }
 
 h2{
   margin:0 0 6px;
-  font-size:24px;
+  font-size:22px;
+  letter-spacing:.2px;
 }
 
 .section-head p{ margin:0; color:var(--muted); }
 
-/* =======================
-   GALLERY GRID
-   ======================= */
-/* 3 columns desktop, 1 column mobile */
+/* Sign font accents (section + cards) */
+.sign{
+  font-family: "AwakeTheBeauty", Georgia, "Times New Roman", serif;
+  letter-spacing: .04em;
+  font-weight: normal;
+}
+
+/* Gallery grid: 3 columns desktop, 1 column mobile */
 .grid{
   display:grid;
   grid-template-columns:repeat(3, minmax(0, 1fr));
@@ -347,9 +318,7 @@ h2{
   .tile img{ height:320px; }
 }
 
-/* =======================
-   VISIT GRID
-   ======================= */
+/* Visit grid */
 .visit-grid{
   display:grid;
   grid-template-columns:repeat(3, minmax(0, 1fr));
@@ -367,23 +336,19 @@ h2{
 .kv div{
   display:flex;
   justify-content:space-between;
-  gap:12px;
+  gap:10px;
   padding:8px 0;
   border-bottom:1px solid rgba(214,180,106,.18);
   color: rgba(244,239,228,.92);
 }
 
-/* =======================
-   FOOTER
-   ======================= */
+/* Footer */
 .footer{
   margin-top:26px;
   padding:14px 0 0;
 }
 
-/* =======================
-   MODAL
-   ======================= */
+/* Modal */
 .modal{
   position:fixed;
   inset:0;
@@ -441,6 +406,7 @@ h2{
   font-size:13px;
   color: rgba(244,239,228,.92);
 }
+
 .modal-hint{
   font-size:12px;
 }
